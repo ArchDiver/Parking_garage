@@ -1,8 +1,8 @@
 # Your parking gargage class should have the following methods:
-# - takeTicket
+# -takeTicket
 #    - This should decrease the amount of tickets available by 1
 #    - This should decrease the amount of parkingSpaces available by 1
-# - payForParking
+# -payForParking
 #    - Display an input that waits for an amount from the user and store it in a variable
 #    - If the payment variable is not empty then ->  display a message to the user that their ticket has been paid and they have 15mins to leave
 #    - This should update the "currentTicket" dictionary key "paid" to True
@@ -27,7 +27,14 @@ class Garage():
         self.currentTicket = currentTicket
 
     def takeTicket(self):
-
+        if self.parkingSpaces = 0:
+            print("No available space left")
+        else:
+            space_tot = self.parkingSpaces - 1
+            ticket_tot = self.tickets + 1
+            self.parkingSpaces = space_tot
+            self.tickets = ticket_tot
+            currentTicket[] = "unpaid"
     def payForTicket(self):
 
     def leaveGarage(self):
@@ -35,12 +42,12 @@ class Garage():
 
 
 def open():
-    start = Garage(60, 0. {})
+    start = Garage(60, 0, {})
+
     while True:
         arrive = input("What do you want to do? Take/Pay/leave? ").lower()
         if arrive == "take":
             start.takeTicket()
             continue
         
-
 open()
