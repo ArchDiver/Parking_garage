@@ -31,6 +31,11 @@ class Garage():
     def payForTicket(self):
 
     def leaveGarage(self):
+        ticketNum = int(input("What is your ticket number?"))
+        paid = self.currentTicket[ticketNum]
+        while ticketNum in self.currentTicket.items():
+
+
         
 
 
