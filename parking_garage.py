@@ -124,7 +124,7 @@ def open(cap):
             start.leaveGarage()
             continue
         if arrive == 'quitquit':
-            print(f"The total number of cars today was {cars}.")    ###prints total cars for the day.
+            print(f"The total number of cars today was {cars}.")    ###For Employee at closing: prints total cars for the day.
             break
         else:
             print("That is not a valid choice. Please try again.")             ### Error message
