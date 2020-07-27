@@ -16,7 +16,7 @@ class Garage():
         parkingSpaces = list
         tickets = int
         closingTime = datetime()
-        currentTicket = dict
+        currentTicket = dict           
     """
 
 
@@ -30,7 +30,7 @@ class Garage():
                 spot = spot + int(1)
             self.currentTicket[spot] = False
             self.ticketNum -= int(1)            
-            print(f"This ticket is only valid for parking spot {spot}.\nThe time now is {now}. \nThe garage closes at {self.closeTime}. Please make sure to have your vehicle out before then. Otherwise you will be charged an over night fee.")
+            print(f"This ticket is only valid for parking spot {spot}.\n\nThe time now is {now}. \nThe garage closes at {self.closeTime}. \nPlease make sure to have your vehicle out before {self.closeTime}. \nOtherwise you will be charged an over night fee.\n")
             cars += 1
             return cars
 
@@ -57,17 +57,18 @@ class Garage():
             else:
                 payment = input("How do you want to pay? Cash or Card?").lower()
                 if payment == "cash" or payment == "card":
-                    print(f"Please input {payment}")
+                    input(f"Please input {payment} and press enter.")
                     self.currentTicket[ticket] = True   
                     now = datetime.now()       #####Next three lines give the time stamps
                     time = now.strftime("%H:%M:%S")
                     fifteen = datetime.now() + timedelta(minutes=15)
+                    out = fifteen.strftime("%H:%M")
                     # if fifteen > close:
                     #     print(f"Thank you for paying. \nYou have 15 minutes to leave the parking area. \n\nThe current time is {time}\nYou should be out by {fifteen}\n") ### displays current time and the time they need to leave by.
                     #     return ticketNum  #Returns value to 'leaveGarage' fo they can leave right away.
 
                     # else:
-                    print(f"Thank you for paying. \nYou have 15 minutes to leave the parking area. \n\nThe current time is {time}\nYou should be out by {fifteen}\n") ### displays current time and the time they need to leave by.
+                    print(f"\nThank you for paying. \nYou have 15 minutes to leave the parking area. \n\nThe current time is {time}\nYou should be out by {out}, or 22:00. Which ever is sooner.\n") ### displays current time and the time they need to leave by.
                     return ticketNum  #Returns value to 'leaveGarage' fo they can leave right away.
                 else:
                     print(f"We do not accept {payment}s. \nPlease choose another form of payment.") ### Error message
@@ -143,6 +144,7 @@ def open(cap):
     spaces = capacity(cap)
     start = Garage(spaces, cap, closeTime, {}) #only works if we can get closeTime working.
     cars = int(0)
+    clear()
     while True:          
         arrive = input("What do you want to do? Take/Pay/leave? ").lower()   #### if you want to use random responses put this before input: rand(counter)#
         clear()
